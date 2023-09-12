@@ -1,37 +1,4 @@
-﻿@*@code{
-
-    @page "/Data";
-    @using LoggerUi.Service
-    private List<string> DataList;
-    @inject DataService DataService;
-    protected override async Task OnInitializedAsync()
-    {
-        DataList = await DataService.GetEmployees();
-    }
-}
-
-
-<h1>data of names</h1>
- <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var name in DataList)
-            {
-                <tr>
-                    <td>@name</td>
-                </tr>
-            }
-        </tbody>
- </table>
-
-
-*@
-
-@page "/Data"
+﻿@page "/Data"
 @using LoggerUi.Service 
 
 @inject DataService DataService
@@ -72,7 +39,6 @@ else
         }
         catch (Exception ex)
         {
-            // Log or display the exception message for debugging purposes
             Console.WriteLine("Error fetching data: " + ex.Message);
         }
     }
